@@ -1,0 +1,29 @@
+{
+  "name": "scoopsahoy-api",
+  "version": "1.0.0",
+  "description": "rest api of an ice cream shop application made with express framework - using knex, jest and sql database",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andersonalexdurante/scoopsahoy-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andersonalexdurante/scoopsahoy-api/issues"
+  },
+  "homepage": "https://github.com/andersonalexdurante/scoopsahoy-api#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "knex": "^0.21.1",
+    "sqlite3": "^4.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
