@@ -5,7 +5,7 @@ exports.up = function(knex) {
         table.string('nome').notNullable()
         table.string('descricao').notNullable()
         table.decimal('preco').notNullable()
-        table.integer('favorito').notNullable()
+        table.integer('favoritos').notNullable()
     })
 };
 
