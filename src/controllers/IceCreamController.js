@@ -7,7 +7,8 @@ module.exports = {
             const type = req.headers.type
 
             //Mais recentes
-            if(type === 1) {
+            if(type == 1) {
+                console.log("recentes")
                 const sorvetes = await connection('sorvetes')
                 .select('*').orderByRaw('id DESC').limit(20)
 
@@ -15,22 +16,26 @@ module.exports = {
             }
             
             //Mais populares
-            if(type === 2) {
+            else if(type == 2) {
+                console.log("populares")
                 const sorvetes = await connection('sorvetes')
                 .select('*').orderByRaw('favoritos DESC').limit(10)
 
                 return res.json(sorvetes)
             }
 
-            //Aleatório
-            const sorvetes = await connection('sorvetes')
-            .select('*')
-            .orderByRaw('RANDOM()')
-            .limit(5)
+            else {
+                console.log("aleatório")
+                //Aleatório
+                const sorvetes = await connection('sorvetes')
+                .select('*')
+                .orderByRaw('RANDOM()')
+                .limit(5)
 
-            sorvetes.sort(() => Math.random() - 0.5)
+                sorvetes.sort(() => Math.random() - 0.5)
 
-            return res.json(sorvetes)
+                return res.json(sorvetes)
+            }
         } catch (error) {
             next(error)
         }
@@ -49,7 +54,7 @@ module.exports = {
                 favoritos,
             })
     
-            return res.json({ id })   
+            return res.status(201).send()
         } catch (error) {
             next(error)
         }
