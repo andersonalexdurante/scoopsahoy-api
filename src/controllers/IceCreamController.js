@@ -66,7 +66,7 @@ module.exports = {
 
             await connection('sorvetes').where('id', id).delete()
 
-            return res.status(204).send();
+            return res.status(200).send();
         } catch (error) {
             next(error)
         }

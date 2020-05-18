@@ -28,11 +28,11 @@ module.exports = {
 
     async create(req, res, next) {
         try {
-            const { preco, quantidade, sessao } = req.body
-            const entregue = false
+            const { id_sorvete, preco, quantidade, entregue, sessao } = req.body
     
             const [ id ] = await connection('carrinhos')
             .insert({
+                id_sorvete,
                 preco,
                 quantidade,
                 entregue,
@@ -46,17 +46,6 @@ module.exports = {
     },
 
     async delivered(req, res, next) {
-        try {
-            const [id] = req.body.id
-
-            id.map(id => await connection('carrinhos')
-                .update('favorito', true)
-                .where('id', id)
-            )
-    
-            return res.status(204).send();   
-        } catch (error) {
-            next(error)
-        }
+        
     }
 }
