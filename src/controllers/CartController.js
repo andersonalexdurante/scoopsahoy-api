@@ -5,7 +5,12 @@ module.exports = {
     async profile(req, res, next) {
         try {
             const carrinhos = await connection('carrinhos')
-            .select('*')
+            .join('sorvetes', 'sorvetes.id', '=', 'carrinhos.id_sorvete')
+            .select([
+                'carrinhos.*',
+                'sorvetes.nome',
+                'sorvetes.imagem'
+            ])
             .where('entregue', false)
 
             return res.json(carrinhos)
@@ -39,13 +44,17 @@ module.exports = {
                 sessao
             })
     
-            return res.json({ id })   
+            return res.status(201).send() 
         } catch (error) {
             next(error)
         }
     },
 
     async delivered(req, res, next) {
-        
+       try {
+           
+       } catch (error) {
+           next(error) 
+       }
     }
 }
