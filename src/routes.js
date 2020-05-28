@@ -14,5 +14,6 @@ routes.get('/profile', CartController.profile)
 routes.get('/history', CartController.history)
 
 routes.post('/cadastrar', UserController.signUp)
+routes.get('/login', UserController.login)
 
 module.exports = routes
