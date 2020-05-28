@@ -44,7 +44,7 @@ module.exports = {
                 sessao
             })
     
-            return res.status(201).send() 
+            return res.status(201).send({ id }) 
         } catch (error) {
             next(error)
         }
